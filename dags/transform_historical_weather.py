@@ -79,7 +79,7 @@ def find_hottest_day_birthyear(in_table: pd.DataFrame, birthyear: int):
 @dag(
     start_date=datetime(2023, 1, 1),
     # this DAG runs as soon as the climate and weather data is ready in DuckDB
-    schedule=[extract_historical_weather_data],
+    schedule=[in_historical_data],
     catchup=False,
     default_args=gv.default_args,
     description="Runs transformations on climate and current weather data in DuckDB.",
